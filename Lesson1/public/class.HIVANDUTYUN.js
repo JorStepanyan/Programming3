@@ -1,4 +1,4 @@
-class bujich{
+class hivandutyun{
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -54,32 +54,30 @@ class bujich{
             matrix[this.y][this.x] = 0;
             var norx = norVandak[0];
             var nory = norVandak[1];
-            matrix[nory][norx] = 5;
+            matrix[nory][norx] = 4;
             this.x = norx;
             this.y = nory;
-            
+            this.energy--;
         }
-        this.energy--;
     }
 
     utel() {
-        var xotaker = this.yntrelVandak(4);
-        var norVandak = random(xotaker);
+        var hivandxot = this.yntrelVandak(1);
+        var norVandak = random(hivandxot);
 
         if (norVandak) {
-            matrix[this.y][this.x] = 0;
             var norx = norVandak[0];
             var nory = norVandak[1];
-            matrix[nory][norx] = 5;
-            this.x = norx;
-            this.y = nory;
-            this.energy++;
-            for (var i in hivandutyunArr) {
-                if (this.x == hivandutyunArr[i].x && this.y == hivandutyunArr[i].y) {
-                    hivandutyunArr.splice(i, 1);
+            matrix[nory][norx] = 4;
+
+            
+            for (var i in grassArr) {
+                if (norx == grassArr[i].x && nory == grassArr[i].y) {
+                    grassArr.splice(i, 1);
                 }
             }
-
+            hivandutyunArr.push(new hivandutyun(norx, nory));
+            this.energy++;
         }
         else {
             this.sharjvel();
@@ -88,23 +86,28 @@ class bujich{
     }
     bazmanal() {
         this.multiply++;
-        var norVandak = random(this.yntrelVandak(4));
-        if (this.multiply >= 1 && norVandak) {
-            var Bujich = new bujich(norVandak[0], norVandak[1]);
-            bujichArr.push(Bujich);
-            matrix[norVandak[1]][norVandak[0]] = 5;
+        var norVandak = random(this.yntrelVandak(1));
+        if (norVandak && this.multiply >= 10) {
+            var xotaker = new Xotaker(norVandak[0], norVandak[1]);
+            xotakerArr.push(xotaker);
+            matrix[norVandak[1]][norVandak[0]] = 2;
             this.multiply = 0;
+
+            for (var i in grassArr) {
+                if (norVandak[0] == grassArr[i].x && norVandak[1] == grassArr[i].y) {
+                    grassArr.splice(i, 1);
+                }
+            }
         }
     }
 
 
     mahanal() {
-        
         if (this.energy <= 8) {
-            for (var i in bujichArr) {
-                if (this.x == bujichArr[i].x && this.y == bujichArr[i].y) {
+            for (var i in hivandutyunArr) {
+                if (this.x == hivandutyunArr[i].x && this.y == hivandutyunArr[i].y) {
                     matrix[this.y][this.x] = 0;
-                    bujichArr.splice(i, 1);
+                    hivandutyunArr.splice(i, 1);
                     
                 }
             }
