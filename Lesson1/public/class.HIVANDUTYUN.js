@@ -62,7 +62,7 @@ class hivandutyun extends LivingCreature{
                     grassArr.splice(i, 1);
                 }
             }
-            hivandutyunArr.push(new hivandutyun(norx, nory));
+            hivandutyunArr.push(new hivandutyun(nory, norx));
             this.energy++;
         }
         else {
