@@ -55,6 +55,7 @@ class Gishatich extends LivingCreature{
             for (var i in xotakerArr) {
                 if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) {
                     xotakerArr.splice(i, 1);
+                    break;
                 }
             }
 
@@ -66,8 +67,8 @@ class Gishatich extends LivingCreature{
     }
     bazmanal() {
         this.multiply++;
-        var norVandak = random(this.yntrelVandak(0));
-        if (this.multiply >= 1 && norVandak) {
+        var norVandak = random(this.yntrelVandak(2));
+        if (this.multiply >= 2 && norVandak) {
             var gishatich = new Gishatich(norVandak[0], norVandak[1]);
             gishatichArr.push(gishatich);
             matrix[norVandak[1]][norVandak[0]] = 3;
@@ -83,6 +84,7 @@ class Gishatich extends LivingCreature{
                 if (this.x == gishatichArr[i].x && this.y == gishatichArr[i].y) {
                     matrix[this.y][this.x] = 0;
                     gishatichArr.splice(i, 1);
+                    break;
                     
                 }
             }

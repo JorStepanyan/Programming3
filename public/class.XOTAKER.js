@@ -41,7 +41,7 @@ class Xotaker extends LivingCreature {
     }
 
     utel() {
-        var xoter = this.yntrelVandak(1);
+        var xoter = this.yntrelVandak(0);
         var norVandak = random(xoter);
 
         if (norVandak) {
@@ -55,6 +55,7 @@ class Xotaker extends LivingCreature {
             for (var i in grassArr) {
                 if (norx == grassArr[i].x && nory == grassArr[i].y) {
                     grassArr.splice(i, 1);
+                    break;
                 }
             }
             this.energy++;
@@ -76,6 +77,7 @@ class Xotaker extends LivingCreature {
             for (var i in grassArr) {
                 if (norVandak[0] == grassArr[i].x && norVandak[1] == grassArr[i].y) {
                     grassArr.splice(i, 1);
+                    break;
                 }
             }
         }
@@ -88,6 +90,7 @@ class Xotaker extends LivingCreature {
                 if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) {
                     matrix[this.y][this.x] = 0;
                     xotakerArr.splice(i, 1);
+                    break;
 
                 }
             }

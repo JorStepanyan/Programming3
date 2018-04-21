@@ -1,4 +1,4 @@
-class hivandutyun extends LivingCreature{
+class hivandutyun extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index)
     }
@@ -33,7 +33,7 @@ class hivandutyun extends LivingCreature{
 
 
     sharjvel() {
-        var datarkVandakner = this.yntrelVandak(1);
+        var datarkVandakner = this.yntrelVandak(0);
         var norVandak = random(datarkVandakner);
 
         if (norVandak) {
@@ -48,7 +48,7 @@ class hivandutyun extends LivingCreature{
     }
 
     utel() {
-        var hivandxot = this.yntrelVandak(0);
+        var hivandxot = this.yntrelVandak(1);
         var norVandak = random(hivandxot);
 
         if (norVandak) {
@@ -56,7 +56,7 @@ class hivandutyun extends LivingCreature{
             var nory = norVandak[1];
             matrix[nory][norx] = 4;
 
-            
+
             for (var i in grassArr) {
                 if (norx == grassArr[i].x && nory == grassArr[i].y) {
                     grassArr.splice(i, 1);
@@ -73,11 +73,11 @@ class hivandutyun extends LivingCreature{
     }
     bazmanal() {
         this.multiply++;
-        var norVandak = random(this.yntrelVandak(0));
+        var norVandak = random(this.yntrelVandak(1));
         if (norVandak && this.multiply >= 10) {
-            var Hivandutyun = new hivandutyun(norVandak[0], norVandak[1]);
-            hivandutyunArr.push(hivandutyun);
-            matrix[norVandak[1]][norVandak[0]] = 2;
+            var newHivandutyunObject = new hivandutyun(norVandak[0], norVandak[1]);
+            hivandutyunArr.push(newHivandutyunObject);
+            matrix[norVandak[1]][norVandak[0]] = 4;
             this.multiply = 0;
             for (var i in grassArr) {
                 if (norVandak[0] == grassArr[i].x && norVandak[1] == grassArr[i].y) {
@@ -96,7 +96,7 @@ class hivandutyun extends LivingCreature{
                     matrix[this.y][this.x] = 0;
                     hivandutyunArr.splice(i, 1);
                     break;
-                    
+
                 }
             }
         }

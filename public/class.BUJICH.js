@@ -63,6 +63,7 @@ class bujich extends LivingCreature{
             for (var i in hivandutyunArr) {
                 if (this.x == hivandutyunArr[i].x && this.y == hivandutyunArr[i].y) {
                     hivandutyunArr.splice(i, 1);
+                    break;
                 }
             }
 
@@ -75,9 +76,9 @@ class bujich extends LivingCreature{
     bazmanal() {
         this.multiply++;
         var norVandak = random(this.yntrelVandak(4));
-        if (this.multiply >= 1 && norVandak) {
-            var Bujich = new bujich(norVandak[0], norVandak[1]);
-            bujichArr.push(Bujich);
+        if (this.multiply >= 3 && norVandak) {
+            var newBujich = new bujich(norVandak[0], norVandak[1]);
+            bujichArr.push(newBujich);
             matrix[norVandak[1]][norVandak[0]] = 5;
             this.multiply = 0;
         }
@@ -91,6 +92,7 @@ class bujich extends LivingCreature{
                 if (this.x == bujichArr[i].x && this.y == bujichArr[i].y) {
                     matrix[this.y][this.x] = 0;
                     bujichArr.splice(i, 1);
+                    break;
                     
                 }
             }
