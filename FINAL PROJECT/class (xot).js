@@ -1,6 +1,5 @@
 class Grass extends LivingCreature {
 
-   
     bazmanal() {
         this.multiply++;
         var norVandak = random(this.yntrelVandak(0));
@@ -12,5 +11,6 @@ class Grass extends LivingCreature {
         }
     }
 }
+
 
 

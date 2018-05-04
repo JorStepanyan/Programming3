@@ -21,7 +21,7 @@ function setup() {
 
             matrix[i][j] = 1;
 
-            if (j % 3 == 0) matrix[i][j] = Math.round(random(0, 5));
+            if(j % 3 == 0) matrix[i][j] = Math.round(random( 0, 5));
         }
     }
 
@@ -40,11 +40,11 @@ function setup() {
                 hivandutyunArr.push(new hivandutyun(x, y));
             }
             else if (matrix[y][x] == 5) {
-                bujichArr.push(new bujich(x, y));
+               bujichArr.push(new bujich(x, y));
+            }
             }
         }
     }
-}
 
 
 

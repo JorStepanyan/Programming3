@@ -1,11 +1,6 @@
 class bujich extends LivingCreature{
     constructor(x, y, index) {
-        super(x, y, index)
-    }
-
-    yntrelVandak(ch) {
-        this.stanalNorKordinatner();
-        return super.yntrelVandak(ch);
+        super(x, y, index);
     }
 
 
@@ -43,14 +38,14 @@ class bujich extends LivingCreature{
             matrix[nory][norx] = 5;
             this.x = norx;
             this.y = nory;
-            
+
         }
         this.energy--;
     }
 
     utel() {
-        var xotaker = this.yntrelVandak(4);
-        var norVandak = random(xotaker);
+        var bujich = this.yntrelVandak(4);
+        var norVandak = random(bujich);
 
         if (norVandak) {
             matrix[this.y][this.x] = 0;
@@ -66,7 +61,7 @@ class bujich extends LivingCreature{
                     break;
                 }
             }
-
+            this.energy++;
         }
         else {
             this.sharjvel();
@@ -76,24 +71,24 @@ class bujich extends LivingCreature{
     bazmanal() {
         this.multiply++;
         var norVandak = random(this.yntrelVandak(4));
-        if (this.multiply >= 3 && norVandak) {
-            var newBujich = new bujich(norVandak[0], norVandak[1]);
-            bujichArr.push(newBujich);
+        if (this.multiply >= 1 && norVandak) {
+            var Bujich = new bujich(norVandak[0], norVandak[1]);
+            bujichArr.push(Bujich);
             matrix[norVandak[1]][norVandak[0]] = 5;
             this.multiply = 0;
         }
     }
 
 
+
     mahanal() {
-        
+
         if (this.energy <= 8) {
             for (var i in bujichArr) {
                 if (this.x == bujichArr[i].x && this.y == bujichArr[i].y) {
                     matrix[this.y][this.x] = 0;
                     bujichArr.splice(i, 1);
                     break;
-                    
                 }
             }
         }

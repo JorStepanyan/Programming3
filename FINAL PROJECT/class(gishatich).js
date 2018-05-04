@@ -3,11 +3,6 @@ class Gishatich extends LivingCreature{
         super(x, y, index);
     }
 
-    yntrelVandak(ch) {
-        this.stanalNorKordinatner();
-        return super.yntrelVandak(ch);
-    }
-
 
     stanalNorKordinatner() {
         this.directions = [
@@ -68,7 +63,7 @@ class Gishatich extends LivingCreature{
     bazmanal() {
         this.multiply++;
         var norVandak = random(this.yntrelVandak(2));
-        if (this.multiply >= 2 && norVandak) {
+        if (this.multiply >= 1 && norVandak) {
             var gishatich = new Gishatich(norVandak[0], norVandak[1]);
             gishatichArr.push(gishatich);
             matrix[norVandak[1]][norVandak[0]] = 3;
@@ -85,7 +80,6 @@ class Gishatich extends LivingCreature{
                     matrix[this.y][this.x] = 0;
                     gishatichArr.splice(i, 1);
                     break;
-                    
                 }
             }
         }
