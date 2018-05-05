@@ -11,12 +11,12 @@ app.listen(3000, function () {
     console.log("Example is running on port 3000");
 });
 
-global.LivingCreature = require("./class(LivingCreature).js");
-global.Xot = require("./class (xot).js");
-global.bujich = require("./class(bujich).js");
-global.hivandutyun = require("./class(hivandutyun).js");
-global.xotaker = require("./class(xotaker).js");
-global.gishatich = require("./class(gishatich).js");
+var LivingCreature = require("./class(LivingCreature).js");
+var Xot = require("./class (xot).js");
+var bujich = require("./class(bujich).js");
+var hivandutyun = require("./class(hivandutyun).js");
+var xotaker = require("./class(xotaker).js");
+var gishatich = require("./class(gishatich).js");
 
 setInterval(function(){
 
