@@ -1,4 +1,4 @@
-module.exports = class bujich extends LivingCreature{
+class bujich extends LivingCreature{
     constructor(x, y, index) {
         super(x, y, index);
     }

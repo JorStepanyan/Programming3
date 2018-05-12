@@ -1,4 +1,4 @@
-module.exports = class hivandutyun extends LivingCreature{
+class hivandutyun extends LivingCreature{
     constructor(x, y, index) {
         super(x, y, index);
     }

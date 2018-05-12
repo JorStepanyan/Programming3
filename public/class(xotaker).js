@@ -1,6 +1,15 @@
-module.exports = class Xotaker extends LivingCreature{
-    constructor(x, y, index) {
+class Xotaker extends LivingCreature{
+    constructor(x, y, index, ser) {
         super(x, y, index);
+        this.timeout = 0;
+        this.bazmanalTimeout = true;
+        if(ser == 0){
+            this.ser = "arakan";
+        }
+        else{
+            this.ser = "igakan";
+        }
+
     }
 
 
@@ -35,6 +44,15 @@ module.exports = class Xotaker extends LivingCreature{
         }
     }
 
+    timeout(){
+        if(this.bazmanalTimeout = false){
+            if(this.timeout >= 3){
+                this.timeout = 0;
+                this.timeout = true;
+            }
+        }
+    }
+
     utel() {
         var xoter = this.yntrelVandak(1);
         var norVandak = random(xoter);
@@ -62,7 +80,9 @@ module.exports = class Xotaker extends LivingCreature{
     }
     bazmanal() {
         this.multiply++;
-        var norVandak = random(this.yntrelVandak(1));
+        if(this.ser = "arakan"){
+            var norVandak = random(this.yntrelVandak(2.5));
+        }
         if (norVandak && this.multiply >= 6) {
             var xotaker = new Xotaker(norVandak[0], norVandak[1]);
             xotakerArr.push(xotaker);

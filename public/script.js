@@ -2,7 +2,6 @@ var n = 38;
 var m = 38;
 var side = 20;
 
-var socket = io();
 var matrix = [];
 var grassArr = []; 
 var xotakerArr = [];
@@ -48,7 +47,6 @@ function setup() {
 }
 
 function draw() {
-
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
 
@@ -60,31 +58,64 @@ function draw() {
                 fill("#acacac");
                 rect(x * side, y * side, side, side);
             }
-            else if ( matrix[y][x] == 2) {
+            else if ( matrix[y][x] == 2) {  //igakan
                 fill("yellow");
                 rect(x * side, y * side, side, side);
             }
-            else if (matrix[y][x] == 3) {
+            else if ( matrix[y][x] == 2.5) { //arakan
+                fill("#C2C811");
+                rect(x * side, y * side, side, side);
+            }
+            else if (matrix[y][x] == 3) { //igakan
                 fill("red");
                 rect(x * side, y * side, side, side);
             }
-            else if (matrix[y][x] == 4) {
+            else if (matrix[y][x] == 3.5) { //arakan
+                fill("#AA1C1C");
+                rect(x * side, y * side, side, side);
+            }
+            else if (matrix[y][x] == 4) { //igakan
                 fill("blue");
                 rect(x * side, y * side, side, side);
             }
-            else if (matrix[y][x] == 5) {
+            else if (matrix[y][x] == 4.5) { //arakan
+                fill("#081779");
+                rect(x * side, y * side, side, side);
+            }
+            else if (matrix[y][x] == 5) { //igakan
                 fill("white");
+                rect(x * side, y * side, side, side);
+            }
+            else if (matrix[y][x] == 5.5) { //arakan
+                fill("#A8CACB");
                 rect(x * side, y * side, side, side);
             }
         }
     }
-}
 
-function main() {
-    var socket = io.connect('http://localhost:3000');
-}
-function handleSumbmit(evt){
-    socket.emit("new coordinates", val);
-}
 
-socket.on('recieved coordinates', draw);
+for (var i in  grassArr) {
+         grassArr[i].bazmanal();
+    }
+    for (var i in  xotakerArr) {
+         xotakerArr[i].utel();
+         xotakerArr[i].bazmanal();
+         xotakerArr[i].mahanal();
+    }
+
+    for (var i in  gishatichArr) {
+         gishatichArr[i].utel();
+         gishatichArr[i].bazmanal();
+         gishatichArr[i].mahanal();
+    }
+    for (var i in  hivandutyunArr) {
+         hivandutyunArr[i].utel();
+         hivandutyunArr[i].bazmanal();
+         hivandutyunArr[i].mahanal();
+    }
+    for (var i in   bujichArr) {
+        bujichArr[i].utel();
+        bujichArr[i].bazmanal();
+        bujichArr[i].mahanal();
+    }
+}

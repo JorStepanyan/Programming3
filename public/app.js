@@ -57,3 +57,11 @@ for (var i in global.grassArr) {
 
 
 },1000)
+function main() {
+    var socket = io.connect('http://localhost:3000');
+}
+function handleSumbmit(evt){
+    socket.emit("new coordinates", val);
+}
+
+socket.on('recieved coordinates', draw);
