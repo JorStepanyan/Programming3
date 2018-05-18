@@ -1,5 +1,5 @@
-var n = 38;
-var m = 38;
+var n = 40;
+var m = 40;
 var side = 20;
 
 var matrix = [];
@@ -11,7 +11,7 @@ var bujichArr = [];
 
 function setup() {
     frameRate(10);
-    createCanvas(800, 800);
+    createCanvas(801, 801);
     background('#acacac');
 
     for (var i = 0; i < n; i++) {
@@ -87,7 +87,7 @@ function draw() {
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 5.5) { //arakan
-                fill("#A8CACB");
+                fill("#D0CFCE");
                 rect(x * side, y * side, side, side);
             }
         }
