@@ -1,5 +1,5 @@
-var n = 40;
-var m = 40;
+var n = 50;
+var m = 50;
 var side = 20;
 
 var matrix = [];
@@ -8,10 +8,11 @@ var xotakerArr = [];
 var gishatichArr = [];
 var hivandutyunArr = [];
 var bujichArr = [];
+var monsterArr = [];
 
 function setup() {
     frameRate(10);
-    createCanvas(801, 801);
+    createCanvas(1005, 1005);
     background('#acacac');
 
     for (var i = 0; i < n; i++) {
@@ -21,7 +22,7 @@ function setup() {
 
             matrix[i][j] = 1;
 
-            if (j % 3 == 0) matrix[i][j] = Math.round(random(0, 5));
+            if (j % 3 == 0) matrix[i][j] = Math.round(random(0, 6));
         }
     }
 
@@ -41,6 +42,9 @@ function setup() {
             }
             else if ( matrix[y][x] == 5) {
                 bujichArr.push(new bujich(x, y));
+            }
+            else if ( matrix[y][x] == 6) {
+                monsterArr.push(new Monster(x, y));
             }
         }
     }
@@ -90,32 +94,50 @@ function draw() {
                 fill("#D0CFCE");
                 rect(x * side, y * side, side, side);
             }
+            else if (matrix[y][x] == 6) { //igakan
+                fill("#3B3938");
+                rect(x * side, y * side, side, side);
+            }
+            else if (matrix[y][x] == 6.5) { //arakan
+                fill("#000000");
+                rect(x * side, y * side, side, side);
+            }
         }
     }
 
-
-for (var i in  grassArr) {
+    for (var i in  grassArr) {
          grassArr[i].bazmanal();
     }
     for (var i in  xotakerArr) {
+        xotakerArr[i].sharjvel();
          xotakerArr[i].utel();
          xotakerArr[i].bazmanal();
          xotakerArr[i].mahanal();
     }
 
     for (var i in  gishatichArr) {
+        gishatichArr[i].sharjvel();
          gishatichArr[i].utel();
          gishatichArr[i].bazmanal();
          gishatichArr[i].mahanal();
     }
     for (var i in  hivandutyunArr) {
+        hivandutyunArr[i].sharjvel();
          hivandutyunArr[i].utel();
          hivandutyunArr[i].bazmanal();
          hivandutyunArr[i].mahanal();
     }
     for (var i in   bujichArr) {
+        bujichArr[i].sharjvel();
         bujichArr[i].utel();
         bujichArr[i].bazmanal();
         bujichArr[i].mahanal();
     }
+     for (var i in   monsterArr) {
+         monsterArr[i].sharjvel();
+         monsterArr[i].utel();
+         monsterArr[i].bazmanal();
+         monsterArr[i].mahanal();
+     }
 }
+

@@ -32,7 +32,7 @@ class hivandutyun extends LivingCreature{
 
 
     sharjvel() {
-        var datarkVandakner = this.yntrelVandak(0);
+        var datarkVandakner = this.yntrelVandak(1);
         var norVandak = random(datarkVandakner);
 
         if (norVandak) {
