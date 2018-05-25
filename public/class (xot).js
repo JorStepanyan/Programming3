@@ -10,8 +10,24 @@ class Grass extends LivingCreature {
             this.multiply = 0;
         }
     }
+    guyn() {
+        if (weather == "Winter") {
+            console.log("winter");
+            matrix[this.y][this.x] = 10;
+        }
+        else if (weather == "Summer") {
+            console.log("summer");
+            matrix[this.y][this.x] = 8;
+        }
+        else if (weather == "Autumn") {
+            console.log("autumn");
+            matrix[this.y][this.x] = 9;
+        }
+        else if (weather == "Spring") {
+            console.log("spring");
+            matrix[this.y][this.x] = 1;
+        }
+    }
+
 }
-
-
-
 

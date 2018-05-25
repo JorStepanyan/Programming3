@@ -2,6 +2,7 @@ var n = 50;
 var m = 50;
 var side = 20;
 
+
 var matrix = [];
 var grassArr = []; 
 var xotakerArr = [];
@@ -9,6 +10,7 @@ var gishatichArr = [];
 var hivandutyunArr = [];
 var bujichArr = [];
 var monsterArr = [];
+var weather = "Summer";
 
 function setup() {
     frameRate(10);
@@ -54,7 +56,7 @@ function draw() {
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
 
-            if (matrix[y][x] == 1) {
+            if (matrix[y][x] == 1) { //grassColorInSpring
                 fill("green");
                 rect(x * side, y * side, side, side);
             }
@@ -87,11 +89,11 @@ function draw() {
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 5) { //igakan
-                fill("white");
+                fill("#5b62c6");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 5.5) { //arakan
-                fill("#D0CFCE");
+                fill("#434996");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 6) { //igakan
@@ -107,11 +109,24 @@ function draw() {
                 fill("black");
                 rect(x * side, y * side, side, side);
             }
+            else if (matrix[y][x] == 8) { //grassColorInSummer
+                fill("#57ce14");
+                rect(x * side, y * side, side, side);
+            }
+            else if (matrix[y][x] == 9) { //grassColorInAutumn
+                fill("#6cce35");
+                rect(x * side, y * side, side, side);
+            }
+            else if (matrix[y][x] == 10) { //grassColorInWinter
+                fill("white");
+                rect(x * side, y * side, side, side);
+            }
         }
     }
 
     for (var i in  grassArr) {
          grassArr[i].bazmanal();
+         grassArr[i].guyn();
     }
     for (var i in  xotakerArr) {
         xotakerArr[i].bazmanal();
@@ -166,3 +181,19 @@ function deleteHivandutyun() {
         }
     }
 }
+
+
+setInterval( function() {
+    if(weather == "Summer") {
+        weather = "Autumn";
+    }
+    else if(weather == "Autumn") {
+        weather = "Winter";
+    }
+    else if(weather == "Winter") {
+        weather = "Spring";
+    }
+    else if(weather == "Spring") {
+        weather = "Summer";
+    }
+}, 4000);
