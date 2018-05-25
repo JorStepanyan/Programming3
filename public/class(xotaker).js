@@ -1,5 +1,5 @@
 class Xotaker extends LivingCreature{
-    constructor(x, y, index, ser) {
+    constructor(x, y, index, hivandutyun) {
         super(x, y, index);
         this.axorjak = 0;
         this.ser = 0;
@@ -63,6 +63,7 @@ class Xotaker extends LivingCreature{
     }
 
     utel() {
+        this.hivandanal();
         var xoter = this.yntrelVandak(1);
         var norVandak = random(xoter);
 
@@ -353,6 +354,15 @@ class Xotaker extends LivingCreature{
                 }
             }
            
+        }
+    }
+        hivandanal() {
+
+        var r = Math.round(random(500))
+        if (r % 2 == 0) {
+            matrix[this.y][this.x] = 7;
+            this.hivandutyun = true;
+            this.mahanal();
         }
     }
 }

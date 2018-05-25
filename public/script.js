@@ -99,7 +99,12 @@ function draw() {
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 6.5) { //arakan
-                fill("#000000");
+                fill("##252525");
+                rect(x * side, y * side, side, side);
+            }
+
+            else if (matrix[y][x] == 7) { //virus
+                fill("black");
                 rect(x * side, y * side, side, side);
             }
         }
@@ -109,35 +114,55 @@ function draw() {
          grassArr[i].bazmanal();
     }
     for (var i in  xotakerArr) {
-        xotakerArr[i].sharjvel();
+        xotakerArr[i].bazmanal();
          xotakerArr[i].utel();
-         xotakerArr[i].bazmanal();
-         xotakerArr[i].mahanal();
     }
 
     for (var i in  gishatichArr) {
-        gishatichArr[i].sharjvel();
-         gishatichArr[i].utel();
          gishatichArr[i].bazmanal();
-         gishatichArr[i].mahanal();
+         gishatichArr[i].utel();
     }
     for (var i in  hivandutyunArr) {
-        hivandutyunArr[i].sharjvel();
          hivandutyunArr[i].utel();
          hivandutyunArr[i].bazmanal();
          hivandutyunArr[i].mahanal();
     }
     for (var i in   bujichArr) {
-        bujichArr[i].sharjvel();
         bujichArr[i].utel();
         bujichArr[i].bazmanal();
         bujichArr[i].mahanal();
     }
      for (var i in   monsterArr) {
-         monsterArr[i].sharjvel();
          monsterArr[i].utel();
          monsterArr[i].bazmanal();
          monsterArr[i].mahanal();
      }
+
+     if(debugMatrix() && hivandutyunArr.length == 0) {
+        deleteHivandutyun(); 
+     }
 }
 
+
+
+function debugMatrix() {
+    var count = 0;
+    for(var y in matrix) {
+        for(var x in matrix[y]) {
+            if(matrix[y][x] == 4 || matrix[y][x] == 4.5) {
+                count++;            
+            }
+        }
+    }
+    return count;
+}
+
+function deleteHivandutyun() {
+        for(var y in matrix) {
+        for(var x in matrix[y]) {
+            if(matrix[y][x] == 4 || matrix[y][x] == 4.5) {
+                matrix[y][x] = 0;
+            }
+        }
+    }
+}
