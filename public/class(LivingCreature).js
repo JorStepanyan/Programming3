@@ -1,10 +1,9 @@
-class LivingCreature {
-    constructor(x, y, index, hivandutyun){
+module.exports = class LivingCreature {
+    constructor(x, y, hivandutyun){
         this.x = x;
         this.y = y;
         this.energy = 8;
         this.multiply = 0;
-        this.index = index;
         this.hivandutyun = false;
         this.directions = [
            [this.x - 1, this.y - 1],

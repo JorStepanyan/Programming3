@@ -1,6 +1,6 @@
-class Monster extends LivingCreature {
-    constructor(x, y, index) {
-        super(x, y, index);
+module.exports = class Monster extends LivingCreature {
+    constructor(x, y, hivandutyun) {
+        super(x, y, hivandutyun);
         this.axorjak = 0;
         this.ser = 0;
         this.bazmacox = false;
@@ -55,6 +55,7 @@ class Monster extends LivingCreature {
     }
 
     utel() {
+        this.hivandanal();
         var monster = this.yntrelVandak(3, 3.5);
         var norVandak = random(monster);
 
@@ -298,6 +299,15 @@ class Monster extends LivingCreature {
                     break;
                 }
             }
+        }
+    }
+     hivandanal() {
+
+        var r = Math.round(random(500))
+        if (r % 2 == 0) {
+            matrix[this.y][this.x] = 7;
+            this.hivandutyun = true;
+            this.mahanal();
         }
     }
 }

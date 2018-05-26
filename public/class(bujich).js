@@ -1,6 +1,6 @@
-class bujich extends LivingCreature{
-    constructor(x, y, index) {
-        super(x, y, index);
+module.exports = class bujich extends LivingCreature{
+    constructor(x, y) {
+        super(x, y);
         this.axorjak = 0;
         this.ser = 0;
         this.bazmacox = false;
@@ -70,8 +70,8 @@ class bujich extends LivingCreature{
     }
 
     utel() {
-        var bujich = this.yntrelVandak(4);
-        var norVandak = random(bujich);
+        var hivandXot = this.yntrelVandak(4);
+        var norVandak = random(hivandXot);
 
         if (norVandak) {
             matrix[this.y][this.x] = 0;
@@ -257,7 +257,7 @@ bazmanal()
                         {
                             if(norbujich.x == hivandutyunArr[i].x && norbujich.y == hivandutyunArr[i].y)
                             {
-                                grassArr.splice(i, 1);
+                                hivandutyunArr.splice(i, 1);
                                 norbujich.axorjak += 1;
                             }
                         }
@@ -354,7 +354,7 @@ bazmanal()
 
     mahanal() {
 
-        if (this.energy <= 8) {
+        if (this.energy <= 5) {
             for (var i in bujichArr) {
                 if (this.x == bujichArr[i].x && this.y == bujichArr[i].y) {
                     matrix[this.y][this.x] = 0;

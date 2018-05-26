@@ -1,6 +1,6 @@
-class hivandutyun extends LivingCreature {
-    constructor(x, y, index) {
-        super(x, y, index);
+module.exports = class hivandutyun extends LivingCreature {
+    constructor(x, y) {
+        super(x, y);
         this.axorjak = 0;
         this.ser = 0;
         this.bazmacox = false;
@@ -301,7 +301,7 @@ class hivandutyun extends LivingCreature {
 
 
     mahanal() {
-        if (this.energy <= 8) {
+        if (this.energy <= 5) {
             for (var i in hivandutyunArr) {
                 if (this.x == hivandutyunArr[i].x && this.y == hivandutyunArr[i].y) {
                     matrix[this.y][this.x] = 0;

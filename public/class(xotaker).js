@@ -1,13 +1,12 @@
 class Xotaker extends LivingCreature {
-    constructor(x, y, index, hivandutyun) {
-        super(x, y, index);
+    constructor(x, y, hivandutyun) {
+        super(x, y, hivandutyun);
         this.axorjak = 0;
         this.ser = 0;
         this.bazmacox = false;
         this.timeout_time = 0;
         this.bazmanal_timeout = true;
     }
-
 
 
     stanalNorKordinatner() {
@@ -37,7 +36,7 @@ class Xotaker extends LivingCreature {
                 matrix[nory][norx] = 2;
             }
 
-            else {
+            else{  
                 matrix[nory][norx] = 2.5;
             }
             this.x = norx;
@@ -297,7 +296,7 @@ class Xotaker extends LivingCreature {
 
 
     mahanal() {
-        if (this.energy <= 8) {
+        
             for (var i in xotakerArr) {
                 if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) {
                     matrix[this.y][this.x] = 0;
@@ -306,7 +305,7 @@ class Xotaker extends LivingCreature {
                 }
             }
 
-        }
+        
     }
     hivandanal() {
 
@@ -317,10 +316,4 @@ class Xotaker extends LivingCreature {
             this.mahanal();
         }
     }
-    if(weather = "Summer") {
-        this.timeout_time = 5;
-    }
-    else (weather = "Winter"){
-        this.timeout_time = 10;
-    }
-}
+    

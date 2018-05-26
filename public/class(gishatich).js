@@ -1,6 +1,6 @@
-class Gishatich extends LivingCreature {
-    constructor(x, y, index, hivandutyun) {
-        super(x, y, index, hivandutyun);
+module.exports = class Gishatich extends LivingCreature {
+    constructor(x, y, hivandutyun) {
+        super(x, y, hivandutyun);
         this.axorjak = 0;
         this.ser = 0;
         this.bazmacox = false;
@@ -94,8 +94,8 @@ class Gishatich extends LivingCreature {
             var norVandak3 = random(datarkVandakner);
 
             var xotaker = this.yntrelVandak(2);
-            var norVandak4 = random(xot);
-            var norVandak5 = random(xot);
+            var norVandak4 = random(xotaker);
+            var norVandak5 = random(xotaker);
 
             var gishatich = this.yntrelVandak(3.5);
             var norVandak2 = random(gishatich);
@@ -127,7 +127,7 @@ class Gishatich extends LivingCreature {
                         var norgishatich = new Gishatich(norx, nory);
                         gishatichArr.push(norgishatich);
 
-                        if (matrix[nory][norx] == 2) {
+                        if (matrix[nory][norx] == 3) {
                             norgishatich.ser = 1;
                         }
 
