@@ -8,7 +8,6 @@ var m = 50;
 var fs = require('fs');
 
 
-
 for (var i = 0; i < n; i++) {
     matrix[i] = [];
 
@@ -16,9 +15,11 @@ for (var i = 0; i < n; i++) {
 
         matrix[i][j] = 1;
 
-        if (j % 3 == 0) matrix[i][j] = Math.round(Math.random() * 7);
+        if (j % 3 == 0) matrix[i][j] = Math.round(Math.random() * 6);
     }
 }
+
+
 app.use(express.static("."));
 app.get('/', function (req, res) {
     res.redirect('index.html');
@@ -58,12 +59,13 @@ var arr = [];
 for (var y = 0; y < matrix.length; y++) {
     for (var x = 0; x < matrix.length; x++) {
         if (matrix[y][x] == 1) {
-            grassArr.push(new Grass(x, y));
+            var xot = new Grass(x, y);
+            grassArr.push(xot);
             cnvacXot++;
         }
         else if (matrix[y][x] == 2) {
             var xotaker1 = new Xotaker(x, y, hivandutyun);
-            global.xotakerArr.push(xotaker1);
+            xotakerArr.push(xotaker1);
             xotaker1.ser = 1;
             cnvacXotaker++;
         }
@@ -121,6 +123,18 @@ for (var y = 0; y < matrix.length; y++) {
             monster1.ser = 2;
             cnvacMonster++;
         }
+        for (var i = 0; i < n; i++) {
+            matrix[i] = [];
+        
+            for (var j = 0; j < m; j++) {
+        
+                matrix[i][j] = 1;
+        
+                if (j % 3 == 0){
+                    matrix[i][j] = Math.round(Math.random() * 6);
+                } 
+            }
+        }
     }
 }
 
@@ -162,42 +176,42 @@ function exanakiPopoxutyun() {
 setInterval(exanakiPopoxutyun,3000);
 
 setInterval(function () {
-    for (var i in global.grassArr) {
+    for (var i in grassArr) {
         if(exanak != "dzmer"){
-            global.grassArr[i].bazmanal();
+            grassArr[i].bazmanal();
         }
-        global.grassArr[i].guyn();
+        grassArr[i].guyn();
     }
-    for (var i in global.xotakerArr) {
-        global.xotakerArr[i].bazmanal();
-        global.xotakerArr[i].utel();
-    }
-
-    for (var i in global.global.gishatichArr) {
-        global.gishatichArr[i].bazmanal();
-        global.gishatichArr[i].utel();
-    }
-    for (var i in global.hivandutyunArr) {
-        global.hivandutyunArr[i].utel();
-        global.hivandutyunArr[i].bazmanal();
-        global.hivandutyunArr[i].mahanal();
-    }
-    for (var i in global.bujichArr) {
-        global.bujichArr[i].bazmanal();
-        global.bujichArr[i].utel();
-    }
-    for (var i in global.monsterArr) {
-        global.monsterArr[i].bazmanal();
-        global.monsterArr[i].utel();
+    for (var i in xotakerArr) {
+        xotakerArr[i].bazmanal();
+        xotakerArr[i].utel();
     }
 
-    if (debugMatrix() && global.hivandutyunArr.length == 0) {
+    for (var i in gishatichArr) {
+        gishatichArr[i].bazmanal();
+        gishatichArr[i].utel();
+    }
+    for (var i in hivandutyunArr) {
+        hivandutyunArr[i].utel();
+        hivandutyunArr[i].bazmanal();
+        hivandutyunArr[i].mahanal();
+    }
+    for (var i in bujichArr) {
+        bujichArr[i].bazmanal();
+        bujichArr[i].utel();
+    }
+    for (var i in monsterArr) {
+        monsterArr[i].bazmanal();
+        monsterArr[i].utel();
+    }
+
+    if (debugMatrix() && hivandutyunArr.length == 0) {
         deleteHivandutyun();
     }
     io.sockets.emit('send matrix', matrix);
     /////verjnakan ekran
     var r = xotakerArr.length + gishatichArr.length + hivandutyunArr.length + bujichArr.length + monsterArr.length
-    if (r <= 3) {
+    if (r <= 2) {
         io.sockets.emit("game_over");
     }
     //////statistika

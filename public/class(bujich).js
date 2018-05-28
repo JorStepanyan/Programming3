@@ -1,7 +1,7 @@
 module.exports =
     class bujich extends global.LivingCreature {
         constructor(x, y, hivandutyun) {
-            super(x, y);
+            super(x, y, hivandutyun);
             this.axorjak = 0;
             this.ser = 0;
             this.bazmacox = false;
