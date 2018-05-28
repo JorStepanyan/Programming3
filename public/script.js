@@ -1,14 +1,18 @@
 var socket = io();
 var side = 20;
-var matrix = [[]];
+var matrix = [];
+var weather = "garun";
+
+
+
 function setup() {
-    frameRate(10);
+    frameRate(100);
     createCanvas(1005, 1005);
     background('#acacac');
+    document.getElementById('exanak').innerText = exanak;
 }
 
 socket.on('send matrix', function(matrix) {
-    console.log(matrix);
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
 
@@ -81,5 +85,18 @@ socket.on('send matrix', function(matrix) {
     }
 })
 
+
+socket.on("game_over", function () {
+    document.body.innerHTML = '';
+    var image = document.createElement("img");
+    image.setAttribute("src", "https://static1.squarespace.com/static/55f74b8ee4b0e9573270c957/t/56162262e4b0e40a96902cc4/1444291173565/logobg_center.png?format=1500w");
+    document.body.appendChild(image);
+});
+
+socket.on("a", function (data) {
+    matrix = data[0];
+    exanak = data[1];
+    document.getElementById('exanak').innerText = exanak;
+});
 
 

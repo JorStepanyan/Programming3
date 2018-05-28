@@ -1,4 +1,5 @@
-class Xotaker extends LivingCreature {
+module.exports = 
+class Xotaker extends global.LivingCreature {
     constructor(x, y, hivandutyun) {
         super(x, y, hivandutyun);
         this.axorjak = 0;
@@ -26,7 +27,7 @@ class Xotaker extends LivingCreature {
 
     sharjvel() {
         var datarkVandakner = this.yntrelVandak(0);
-        var norVandak = random(datarkVandakner);
+        var norVandak = this.getrandom(datarkVandakner);
 
         if (norVandak) {
             matrix[this.y][this.x] = 0;
@@ -36,7 +37,7 @@ class Xotaker extends LivingCreature {
                 matrix[nory][norx] = 2;
             }
 
-            else{  
+            else {
                 matrix[nory][norx] = 2.5;
             }
             this.x = norx;
@@ -59,7 +60,7 @@ class Xotaker extends LivingCreature {
     utel() {
         this.hivandanal();
         var xoter = this.yntrelVandak(1);
-        var norVandak = random(xoter);
+        var norVandak = this.getrandom(xoter);
 
         if (norVandak) {
             matrix[this.y][this.x] = 0;
@@ -77,23 +78,42 @@ class Xotaker extends LivingCreature {
             }
             this.energy++;
         }
+        
+        
         else {
             this.sharjvel();
+        }
+        /////////////////xotakeri exanaki azdecutyun
+
+        if(exanak == "garun"){
+            if(this.energy >= 30){
+                this.bazmanal();
+            }
+        }
+        else if(exanak == "amar" || exanak == "ashun"){
+            if(this.enrgy >= 90){
+                this.bazmanal();
+            }
+        }
+        else if(exanak == "dzmer"){
+            if(this.energy >= 130){
+                this.bazmanal();
+            }
         }
 
     }
     bazmanal() {
         if (this.ser == 1 && this.bazmanal_timeout == true) {
             var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = random(datarkVandakner);
-            var norVandak3 = random(datarkVandakner);
+            var norVandak = this.getrandom(datarkVandakner);
+            var norVandak3 = this.getrandom(datarkVandakner);
 
             var xot = this.yntrelVandak(1);
-            var norVandak4 = random(xot);
-            var norVandak5 = random(xot);
+            var norVandak4 = this.getrandom(xot);
+            var norVandak5 = this.getrandom(xot);
 
             var xotaker = this.yntrelVandak(2.5);
-            var norVandak2 = random(xotaker);
+            var norVandak2 = this.getrandom(xotaker);
 
             if (norVandak2) {
                 for (var i in xotakerArr) {
@@ -109,7 +129,7 @@ class Xotaker extends LivingCreature {
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getrandom(5));
 
                         if (r >= 1) {
                             matrix[nory][norx] = 2;
@@ -137,7 +157,7 @@ class Xotaker extends LivingCreature {
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getrandom(5));
 
                         if (r >= 1) {
                             matrix[nory][norx] = 2;
@@ -162,7 +182,7 @@ class Xotaker extends LivingCreature {
                             var norx = norVandak3[0];
                             var nory = norVandak3[1];
 
-                            var r2 = Math.floor(random(5));
+                            var r2 = Math.floor(this.getrandom(5));
 
                             if (r2 >= 1) {
                                 matrix[nory][norx] = 2;
@@ -193,7 +213,7 @@ class Xotaker extends LivingCreature {
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getrandom(5));
 
                         if (r >= 1) {
                             matrix[nory][norx] = 2;
@@ -228,7 +248,7 @@ class Xotaker extends LivingCreature {
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getrandom(5));
 
                         if (r >= 1) {
                             matrix[nory][norx] = 2;
@@ -260,7 +280,7 @@ class Xotaker extends LivingCreature {
                             var norx = norVandak5[0];
                             var nory = norVandak5[1];
 
-                            var r2 = Math.floor(random(5));
+                            var r2 = Math.floor(this.getrandom(5));
 
                             if (r2 >= 1) {
                                 matrix[nory][norx] = 2;
@@ -296,7 +316,7 @@ class Xotaker extends LivingCreature {
 
 
     mahanal() {
-        
+        if (this.energy <= 8) {
             for (var i in xotakerArr) {
                 if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) {
                     matrix[this.y][this.x] = 0;
@@ -305,15 +325,15 @@ class Xotaker extends LivingCreature {
                 }
             }
 
-        
+        }
     }
     hivandanal() {
 
-        var r = Math.round(random(500))
+        var r = Math.round(this.getrandom(500))
         if (r % 2 == 0) {
             matrix[this.y][this.x] = 7;
             this.hivandutyun = true;
             this.mahanal();
         }
     }
-    
+}

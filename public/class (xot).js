@@ -1,8 +1,9 @@
-module.exports = class Grass extends LivingCreature {
+module.exports = 
+class Grass extends global.LivingCreature {
 
     bazmanal() {
         this.multiply++;
-        var norVandak = Math.random(this.yntrelVandak(0));
+        var norVandak = this.getrandom(this.yntrelVandak(0));
         if (this.multiply >= 8 && norVandak) {
             var norXot = new Grass(norVandak[0], norVandak[1]);
             grassArr.push(norXot);
@@ -11,20 +12,16 @@ module.exports = class Grass extends LivingCreature {
         }
     }
     guyn() {
-        if (weather == "Winter") {
-            //console.log("winter");
+        if (exanak == "dzmer") {
             matrix[this.y][this.x] = 10;
         }
-        else if (weather == "Spring") {
-            //console.log("spring");
+        else if (exanak == "garun") {
             matrix[this.y][this.x] = 1;
         }
-        else if (weather == "Summer") {
-            //console.log("summer");
+        else if (exanak == "amar") {
             matrix[this.y][this.x] = 8;
         }
-        else if (weather == "Autumn") {
-            //console.log("autumn");
+        else if (exanak == "ashun") {
             matrix[this.y][this.x] = 9;
         }
         

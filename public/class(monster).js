@@ -1,5 +1,5 @@
 module.exports = 
-class Gishatich extends global.LivingCreature {
+class Monster extends global.LivingCreature {
     constructor(x, y, hivandutyun) {
         super(x, y, hivandutyun);
         this.axorjak = 0;
@@ -9,21 +9,19 @@ class Gishatich extends global.LivingCreature {
         this.bazmanal_timeout = true;
     }
 
-
     stanalNorKordinatner() {
         this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
+            [this.x - 1, this.y - 2],
+            [this.x + 1, this.y - 2],
+            [this.x + 2, this.y - 1],
+            [this.x + 2, this.y + 1],
+            [this.x + 1, this.y + 2],
+            [this.x - 1, this.y + 2],
+            [this.x - 2, this.y + 1],
+            [this.x - 2, this.y - 1]
         ];
 
     }
-
 
     sharjvel() {
         var datarkVandakner = this.yntrelVandak(0);
@@ -34,20 +32,15 @@ class Gishatich extends global.LivingCreature {
             var norx = norVandak[0];
             var nory = norVandak[1];
             if (this.ser == 1) {
-                matrix[nory][norx] = 3;
+                matrix[nory][norx] = 6;
             }
 
             else {
-                matrix[nory][norx] = 3.5;
+                matrix[nory][norx] = 6.5;
             }
             this.x = norx;
             this.y = nory;
-
-        }
-        this.energy--
-
-        if (this.energy <= 0) {
-            this.mahanal();
+            this.energy--;
         }
     }
 
@@ -64,29 +57,28 @@ class Gishatich extends global.LivingCreature {
 
     utel() {
         this.hivandanal();
-        var xotaker = this.yntrelVandak(2);
-        var norVandak = this.getrandom(xotaker);
+        var monster = this.yntrelVandak(3, 3.5);
+        var norVandak = this.getrandom(monster);
 
         if (norVandak) {
-            matrix[this.y][this.x] = 0;
             var norx = norVandak[0];
             var nory = norVandak[1];
-            matrix[nory][norx] = 3;
-            this.x = norx;
-            this.y = nory;
-            this.energy++;
-            for (var i in xotakerArr) {
-                if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) {
-                    xotakerArr.splice(i, 1);
+            matrix[nory][norx] = 6;
+
+
+            for (var i in gishatichArr) {
+                if (norx == gishatichArr[i].x && nory == gishatichArr[i].y) {
+                    gishatichArr.splice(i, 1);
                     break;
                 }
             }
-
+            monsterArr.push(new Monster(norx, nory));
+            this.energy++;
         }
         else {
             this.sharjvel();
         }
-        //////////////exanaki azdecutyuny gishatichi vra
+        ///////////exanaki azdecutyuny monstri vra
         if(exanak == "garun"){
             if(this.energy >= 2){
                 this.bazmanal();
@@ -102,7 +94,6 @@ class Gishatich extends global.LivingCreature {
                 this.bazmanal();
             }
         }
-
     }
     bazmanal() {
         if (this.ser == 1 && this.bazmanal_timeout == true) {
@@ -110,51 +101,51 @@ class Gishatich extends global.LivingCreature {
             var norVandak = this.getrandom(datarkVandakner);
             var norVandak3 = this.getrandom(datarkVandakner);
 
-            var xotaker = this.yntrelVandak(2);
-            var norVandak4 = this.getrandom(xotaker);
-            var norVandak5 = this.getrandom(xotaker);
+            var gishatich = this.yntrelVandak(3, 3.5);
+            var norVandak4 = this.getrandom(gishatich);
+            var norVandak5 = this.getrandom(gishatich);
 
-            var gishatich = this.yntrelVandak(3.5);
-            var norVandak2 = this.getrandom(gishatich);
+            var monster = this.yntrelVandak(6.5);
+            var norVandak2 = this.getrandom(monstert);
 
             if (norVandak2) {
-                for (var i in gishatichArr) {
-                    if (norVandak2[0] == gishatichArr[i].x && norVandak2[1] == gishatichArr[i].y) {
-                        var gishatich_igakan = gishatichArr[i];
+                for (var i in monsterArr) {
+                    if (norVandak2[0] == monsterArr[i].x && norVandak2[1] == monsterArr[i].y) {
+                        varmonster_igakan = monsterArr[i];
                     }
                 }
 
                 if (norVandak) {
                     this.bazmanal_timeout = false;
 
-                    if (gishatich_igakan.bazmacox == false) {
+                    if (monster_igakan.bazmacox == false) {
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
                         var r = Math.floor(this.getrandom(5));
 
                         if (r >= 1) {
-                            matrix[nory][norx] = 3;
+                            matrix[nory][norx] = 6;
                         }
 
                         else {
-                            matrix[nory][norx] = 3.5;
+                            matrix[nory][norx] = 6.5;
                         }
 
-                        var norgishatich = new Gishatich(norx, nory);
-                        gishatichArr.push(norgishatich);
+                        var norMonster = new monster(norx, nory);
+                        monsterArr.push(norMonster);
 
-                        if (matrix[nory][norx] == 3) {
-                            norgishatich.ser = 1;
+                        if (matrix[nory][norx] == 6) {
+                            norMonster.ser = 1;
                         }
 
                         else {
-                            norgishatich.ser = 2;
+                            norMonster.ser = 2;
                         }
                     }
 
-                    if (gishatich_igakan.bazmacox == true) {
-                        gishatich_igakan.bazmacox = false;
+                    if (monster_igakan.bazmacox == true) {
+                        monster_igakan.bazmacox = false;
 
                         var norx = norVandak[0];
                         var nory = norVandak[1];
@@ -162,22 +153,22 @@ class Gishatich extends global.LivingCreature {
                         var r = Math.floor(this.getrandom(5));
 
                         if (r >= 1) {
-                            matrix[nory][norx] = 3;
+                            matrix[nory][norx] = 6;
                         }
 
                         else {
-                            matrix[nory][norx] = 3.5;
+                            matrix[nory][norx] = 6.5;
                         }
 
-                        var norgishatich = new Gishatich(norx, nory);
-                        gishatichArr.push(norgishatich);
+                        var norMonster = new Monster(norx, nory);
+                        monsterArr.push(norMonster);
 
-                        if (matrix[nory][norx] == 3) {
-                            norgishatich.ser = 1;
+                        if (matrix[nory][norx] == 6) {
+                            norMonster.ser = 1;
                         }
 
                         else {
-                            norgishatich.ser = 2;
+                            norMonster.ser = 2;
                         }
 
                         if (norVandak3[0] != norVandak[0] && norVandak3[1] != norVandak[1]) {
@@ -187,22 +178,22 @@ class Gishatich extends global.LivingCreature {
                             var r2 = Math.floor(this.getrandom(5));
 
                             if (r2 >= 1) {
-                                matrix[nory][norx] = 3;
+                                matrix[nory][norx] = 6;
                             }
 
                             else {
-                                matrix[nory][norx] = 3.5;
+                                matrix[nory][norx] = 6.5;
                             }
 
-                            var norgishatich2 = new Gishatich(norx, nory);
-                            gishatichArr.push(norgishatich2);
+                            var norMonster2 = new Monster(norx, nory);
+                            monsterArr.push(norMonster2);
 
-                            if (matrix[nory][norx] == 3) {
-                                norgishatich2.ser = 1;
+                            if (matrix[nory][norx] == 6) {
+                                norMonster2.ser = 1;
                             }
 
                             else {
-                                norgishatich2.ser = 2;
+                                norMonster2.ser = 2;
                             }
                         }
                     }
@@ -211,41 +202,41 @@ class Gishatich extends global.LivingCreature {
                 if (norVandak4) {
                     this.bazmanal_timeout = false;
 
-                    if (gishatich_igakan.bazmacox == false) {
+                    if (monster_igakan.bazmacox == false) {
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
                         var r = Math.floor(this.getrandom(5));
 
                         if (r >= 1) {
-                            matrix[nory][norx] = 3;
+                            matrix[nory][norx] = 6;
                         }
 
                         else {
-                            matrix[nory][norx] = 3.5;
+                            matrix[nory][norx] = 6.5;
                         }
 
-                        var norgishatich = new Gishatich(norx, nory);
-                        gishatichArr.push(norgishatich);
+                        var norMonster = new Monster(norx, nory);
+                        monsterArr.push(norMonster);
 
-                        if (matrix[nory][norx] == 3) {
-                            norgishatich.ser = 1;
+                        if (matrix[nory][norx] == 6) {
+                            norMonster.ser = 1;
                         }
 
                         else {
-                            norgishatich.ser = 2;
+                            norMonster.ser = 2;
                         }
 
-                        for (var i in xotakerArr) {
-                            if (norgishatich.x == xotakerArr[i].x && norgishatich.y == xotakerArr[i].y) {
-                                xotakerArr.splice(i, 1);
-                                norgishatich.axorjak += 1;
+                        for (var i in gishatichArr) {
+                            if (norMonster.x == gishatichArr[i].x && norMonster.y == gishatichArr[i].y) {
+                                gishatichArr.splice(i, 1);
+                                norMonster.axorjak += 1;
                             }
                         }
                     }
 
-                    else if (gishatich_igakan.bazmacox == true) {
-                        gishatich_igakan.bazmacox = false;
+                    else if (monster_igakan.bazmacox == true) {
+                        monster_igakan.bazmacox = false;
 
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
@@ -253,28 +244,28 @@ class Gishatich extends global.LivingCreature {
                         var r = Math.floor(this.getrandom(5));
 
                         if (r >= 1) {
-                            matrix[nory][norx] = 3;
+                            matrix[nory][norx] = 6;
                         }
 
                         else {
-                            matrix[nory][norx] = 3.5;
+                            matrix[nory][norx] = 6.5;
                         }
 
-                        var norgishatich = new Gishatich(norx, nory);
-                        gishatichArr.push(norgishatich);
+                        var norMonster = new Monster(norx, nory);
+                        monsterArr.push(norMonster);
 
-                        if (matrix[nory][norx] == 3) {
-                            norgishatich.ser = 1;
+                        if (matrix[nory][norx] == 6) {
+                            norMonster.ser = 1;
                         }
 
                         else {
-                            norgishatich.ser = 2;
+                            norMonster.ser = 2;
                         }
 
-                        for (var i in xotakerArr) {
-                            if (norgishatich.x == xotakerArr[i].x && norgishatich.y == xotakerArr[i].y) {
-                                xotakerArr.splice(i, 1);
-                                norgishatich.axorjak += 1;
+                        for (var i in gishatichArr) {
+                            if (norMonster.x == gishatichArr[i].x && norMonster.y == gishatichArr[i].y) {
+                                gishatichArr.splice(i, 1);
+                                norMonster.axorjak += 1;
                             }
                         }
 
@@ -285,28 +276,28 @@ class Gishatich extends global.LivingCreature {
                             var r2 = Math.floor(this.getrandom(5));
 
                             if (r2 >= 1) {
-                                matrix[nory][norx] = 3;
+                                matrix[nory][norx] = 6;
                             }
 
                             else {
-                                matrix[nory][norx] = 3.5;
+                                matrix[nory][norx] = 6.5;
                             }
 
-                            var norgishatich2 = new Gishatich(norx, nory);
-                            gishatichArr.push(norgishatich2);
+                            var norMonster2 = new Monster(norx, nory);
+                            monsterArr.push(norMonster2);
 
-                            if (matrix[nory][norx] == 3) {
-                                norgishatich2.ser = 1;
+                            if (matrix[nory][norx] == 6) {
+                                norMonster2.ser = 1;
                             }
 
                             else {
-                                norgishatich2.ser = 2;
+                                norMonster2.ser = 2;
                             }
 
-                            for (var i in xotakerArr) {
-                                if (norgishatich2.x == xotakerArr[i].x && norgishatich2.y == xotakerArr[i].y) {
-                                    xotakerArr.splice(i, 1);
-                                    norgishatich2.axorjak += 1;
+                            for (var i in gishatichArr) {
+                                if (norMonster2.x == gishatichArr[i].x && norMonster2.y == gishatichArr[i].y) {
+                                    gishatichArr.splice(i, 1);
+                                    norMonster2.axorjak += 1;
                                 }
                             }
                         }
@@ -315,21 +306,18 @@ class Gishatich extends global.LivingCreature {
             }
         }
     }
-
-
     mahanal() {
-        if (this.energy <= 0) {
-            for (var i in gishatichArr) {
-                if (this.x == gishatichArr[i].x && this.y == gishatichArr[i].y) {
+        if (this.energy <= 8) {
+            for (var i in monsterArr) {
+                if (this.x == monsterArr[i].x && this.y == monsterArr[i].y) {
                     matrix[this.y][this.x] = 0;
-                    gishatichArr.splice(i, 1);
+                    hivandutyunArr.splice(i, 1);
                     break;
                 }
             }
         }
     }
-
-    hivandanal() {
+     hivandanal() {
 
         var r = Math.round(this.getrandom(500))
         if (r % 2 == 0) {
@@ -339,3 +327,4 @@ class Gishatich extends global.LivingCreature {
         }
     }
 }
+
