@@ -30,6 +30,10 @@ module.exports =
             ];
 
         }
+        yntrelVandak(ch) {
+            this.stanalNorKordinatner();
+            return super.yntrelVandak(ch);
+        }
 
 
         sharjvel() {

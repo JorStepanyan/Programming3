@@ -23,6 +23,10 @@ class Gishatich extends global.LivingCreature {
         ];
 
     }
+    yntrelVandak(ch) {
+        this.stanalNorKordinatner();
+        return super.yntrelVandak(ch);
+    }
 
 
     sharjvel() {

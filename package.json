@@ -1,5 +1,5 @@
 {
-  "name": "Programming3",
+  "name": "programming3",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -14,12 +14,17 @@
   "author": "JorStepanyan",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
+    "express": "^4.16.4",
     "module": "^1.2.5",
     "nodemon": "^1.17.4",
-    "socket.io": "^2.1.1"
+    "socket.io": "^2.2.0"
   },
   "engines": {
     "node": "4.7.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/JorStepanyan/Programming3/issues"
+  },
+  "homepage": "https://github.com/JorStepanyan/Programming3#readme",
+  "devDependencies": {}
 }
