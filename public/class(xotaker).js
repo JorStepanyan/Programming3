@@ -99,7 +99,7 @@ module.exports =
                 }
             }
             else if (exanak == "dzmer") {
-                if (this.energy >= 130) {
+                if (this.energy >= 200) {
                     this.bazmanal();
                 }
             }

@@ -9,7 +9,6 @@ function setup() {
     frameRate(100);
     createCanvas(1005, 1005);
     background('#acacac');
-    document.getElementById('exanak').innerText = exanak;
 }
 
 socket.on('send matrix', function(matrix) {

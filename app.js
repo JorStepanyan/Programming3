@@ -173,7 +173,7 @@ function exanakiPopoxutyun() {
         i = 0;
     }
 }
-setInterval(exanakiPopoxutyun,3000);
+setInterval(exanakiPopoxutyun,1000);
 
 setInterval(function () {
     for (var i in grassArr) {
@@ -211,7 +211,7 @@ setInterval(function () {
     io.sockets.emit('send matrix', matrix);
     /////verjnakan ekran
     var r = xotakerArr.length + gishatichArr.length + hivandutyunArr.length + bujichArr.length + monsterArr.length
-    if (r <= 2) {
+    if (r <= 1) {
         io.sockets.emit("game_over");
     }
     //////statistika
