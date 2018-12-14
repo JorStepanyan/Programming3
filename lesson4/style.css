@@ -31,12 +31,12 @@ body {
 }
 
 #delete {
-    width: 200px;
-    height: 70px;
+    width: 175px;
+    height: 47.75px;
     border-radius: 0;
     background-color: #43A047;
     color: white;
-    font-size: 2.0em;
+    font-size: 1.5em;
     border: none;
 }
 

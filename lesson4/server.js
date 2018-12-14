@@ -13,15 +13,15 @@ server.listen(3000);
 io.on('connection', function (socket) {
     for(var i in messages) {
       io.sockets.emit("display message", messages[i]);
+      io.sockets.emit("delete message");
     }
-    for(var i in messages) {
-        io.sockets.emit("delete message");
-      }
+        
+      
     socket.on("send message", function (data) {
         messages.push(data);
         io.sockets.emit("display message", data);
     });
-    socket.on("delete message", function(data1){
+    socket.on("delete message", function(){
         messages = [];
         io.sockets.emit("arden jnjeq");
     });

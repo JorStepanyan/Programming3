@@ -10,25 +10,32 @@ function main() {
         if (val != "") {
             socket.emit("send message", val);
         }
-        function handleDelete(evt) {
-                socket.emit("delete message");
-            
-        }
-        button.onclick = handleSubmit;
-        button1.onclick = handleDelete;
+    }
+    function handleDelete() {
+        socket.emit("delete message");
 
-        function handleMessage(msg) {
-            var p = document.createElement('p');
-            p.innerText = msg;
-            chatDiv.appendChild(p);
-            input.value = "";
-        }
-        function deleteFROMDOM(){
-           
-        }
+    }
+    button.onclick = handleSubmit;
+    button1.onclick = handleDelete;
 
-        socket.on('display message', handleMessage);
-        socket.on("arden jnjeq", deleteFROMDOM);
-    } // main closing bracket
-}
-    window.onload = main
+    function handleMessage(msg) {
+        var p = document.createElement('p');
+        p.innerText = msg;
+        chatDiv.appendChild(p);
+        input.value = "";
+    }
+    function deleteFROMDOM() {
+        var p = document.getElementsByTagName("p");
+        console.log(p);
+        for (var i in p) {
+            if (p.length > 0) {
+                chatDiv.removeChild(p[0]);
+            }
+        }
+    }
+
+    socket.on("display message", handleMessage);
+    socket.on("arden jnjeq", deleteFROMDOM);
+} // main closing bracket
+
+window.onload = main
