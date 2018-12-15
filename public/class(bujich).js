@@ -61,7 +61,7 @@ module.exports =
 
         sharjvel() {
             var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = random(datarkVandakner);
+            var norVandak = this.getrandom(datarkVandakner);
     
             if (norVandak) {
                 matrix[this.y][this.x] = 0;

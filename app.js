@@ -90,27 +90,13 @@ for (var y = 0; y < matrix.length; y++) {
         else if (matrix[y][x] == 4) {
             var hivandXot = new hivandutyun(x, y);
             hivandutyunArr.push(hivandXot);
-            hivandXot.ser = 1;
             cnvacHivandutyun++;
         }
-        // else if (matrix[y][x] == 4.5) {
-        //     var hivandXot = new hivandutyun(x, y);
-        //     hivandutyunArr.push(hivandXot);
-        //     hivandXot.ser = 2;
-        //     cnvacHivandutyun++;
-        // }
         else if (matrix[y][x] == 5) {
             var bujich1 = new bujich(x, y, hivandutyun);
             bujichArr.push(bujich1);
-            busjich1.ser = 1;
             cnvacBujich++;
         }
-        // else if (matrix[y][x] == 5.5) {
-        //     var bujich1 = new bujich(x, y, hivandutyun);
-        //     bujichArr.push(bujich1);
-        //     busjich1.ser = 2;
-        //     cnvacBujich++;
-        // }
         else if (matrix[y][x] == 6) {
             var monster1 = new Monster(x, y, hivandutyun);
             monsterArr.push(monster1);
@@ -139,35 +125,35 @@ for (var y = 0; y < matrix.length; y++) {
 }
 
 
-// function debugMatrix() {
-//     var count = 0;
-//     for (var y in matrix) {
-//         for (var x in matrix[y]) {
-//             if (matrix[y][x] == 4 || matrix[y][x] == 4.5) {
-//                 count++;
-//             }
+function debugMatrix() {
+    var count = 0;
+    for (var y in matrix) {
+        for (var x in matrix[y]) {
+            if (matrix[y][x] == 4) {
+                count++;
+            }
 
 
-//         }
-//     }
-//     return count;
-// }
+        }
+    }
+    return count;
+}
 
-// function deleteHivandutyun() {
-//     for (var y in matrix) {
-//         for (var x in matrix[y]) {
-//             if (matrix[y][x] == 4 || matrix[y][x] == 4.5) {
-//                 matrix[y][x] = 0;
-//             }
-//         }
-//     }
-// }
+function deleteHivandutyun() {
+    for (var y in matrix) {
+        for (var x in matrix[y]) {
+            if (matrix[y][x] == 4) {
+                matrix[y][x] = 0;
+            }
+        }
+    }
+}
+
 
     var i = 0;
 
 function exanakiPopoxutyun() {
     exanak = exanaknerArr[i];
-    //console.log(exanak);
     i++;
 
     if (i >= 4) {
@@ -192,7 +178,6 @@ setInterval(function () {
         gishatichArr[i].bazmanal();
         gishatichArr[i].utel();
     }
-    console.log(hivandutyunArr);
     for (var i in hivandutyunArr) {
         hivandutyunArr[i].utel();
         hivandutyunArr[i].bazmanal();
@@ -207,9 +192,9 @@ setInterval(function () {
         monsterArr[i].utel();
     }
 
-    // if (debugMatrix() && hivandutyunArr.length == 0) {
-    //     deleteHivandutyun();
-    // }
+    if (debugMatrix() && hivandutyunArr.length == 0) {
+        deleteHivandutyun();
+    }
     io.sockets.emit('send matrix', matrix);
     /////verjnakan ekran
     var r = xotakerArr.length + gishatichArr.length + hivandutyunArr.length + bujichArr.length + monsterArr.length

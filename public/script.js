@@ -2,6 +2,7 @@ var socket = io();
 var side = 20;
 var matrix = [];
 var weather = "garun";
+var e = document.getElementById('exanak');
 
 
 
@@ -15,7 +16,7 @@ socket.on('send matrix', function(matrix) {
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) { //grassColorInSpring
-                fill("green");
+                fill("#00890A");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 0) { //background
@@ -23,35 +24,27 @@ socket.on('send matrix', function(matrix) {
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 2) {  //igakan
-                fill("yellow");
+                fill("#FFF700");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 2.5) { //arakan
-                fill("#C2C811");
+                fill("#CDC82C");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 3) { //igakan
-                fill("red");
+                fill("#FF0000");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 3.5) { //arakan
-                fill("#AA1C1C");
+                fill("#A32323");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 4) { //igakan
                 fill("blue");
                 rect(x * side, y * side, side, side);
             }
-            // else if (matrix[y][x] == 4.5) { //arakan
-            //     fill("#081779");
-            //     rect(x * side, y * side, side, side);
-            // }
             else if (matrix[y][x] == 5) { //igakan
-                fill("#5b62c6");
-                rect(x * side, y * side, side, side);
-            }
-            else if (matrix[y][x] == 5.5) { //arakan
-                fill("#434996");
+                fill("#404544");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 6) { //igakan
@@ -59,7 +52,7 @@ socket.on('send matrix', function(matrix) {
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 6.5) { //arakan
-                fill("##252525");
+                fill("#77B0A4");
                 rect(x * side, y * side, side, side);
             }
 
@@ -72,7 +65,7 @@ socket.on('send matrix', function(matrix) {
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 9) { //grassColorInAutumn
-                fill("#868D2D");
+                fill("#15E700");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 10) { //grassColorInWinter

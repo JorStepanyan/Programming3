@@ -110,18 +110,17 @@ module.exports =
                 var norVandak5 = this.getrandom(gishatich);
 
                 var monster = this.yntrelVandak(6.5);
-                var norVandak2 = this.getrandom(monstert);
+                var norVandak2 = this.getrandom(monster);
 
                 if (norVandak2) {
                     for (var i in monsterArr) {
                         if (norVandak2[0] == monsterArr[i].x && norVandak2[1] == monsterArr[i].y) {
-                            varmonster_igakan = monsterArr[i];
+                            var monster_igakan = monsterArr[i];
                         }
                     }
 
                     if (norVandak) {
                         this.bazmanal_timeout = false;
-
                         if (monster_igakan.bazmacox == false) {
                             var norx = norVandak[0];
                             var nory = norVandak[1];
@@ -136,7 +135,7 @@ module.exports =
                                 matrix[nory][norx] = 6.5;
                             }
 
-                            var norMonster = new monster(norx, nory);
+                            var norMonster = new Monster(norx, nory);
                             monsterArr.push(norMonster);
 
                             if (matrix[nory][norx] == 6) {
@@ -311,7 +310,7 @@ module.exports =
             }
         }
         mahanal() {
-            if (this.energy <= 8) {
+            if (this.energy <= 10) {
                 for (var i in monsterArr) {
                     if (this.x == monsterArr[i].x && this.y == monsterArr[i].y) {
                         matrix[this.y][this.x] = 0;

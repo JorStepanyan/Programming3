@@ -60,7 +60,7 @@ module.exports =
         sharjvel() {
             var datarkVandakner = this.yntrelVandak(0);
             var norVandak = this.getrandom(datarkVandakner);
-    
+
             if (norVandak) {
                 matrix[this.y][this.x] = 0;
                 var norx = norVandak[0];
@@ -83,7 +83,6 @@ module.exports =
         // }
 
         utel() {
-            console.log("kerav");
             var hivandxot = this.yntrelVandak(1);
             var norVandak = this.getrandom(hivandxot);
 
@@ -102,22 +101,21 @@ module.exports =
                 this.energy++;
             }
             else {
-                console.log("chkerav");
                 this.sharjvel();
             }
             ///////////////exanaki azdecutyuny hivandutyan vra
-            if(exanak == "garun"){
-                if(this.energy >= 2){
+            if (exanak == "garun") {
+                if (this.energy >= 2) {
                     this.bazmanal();
                 }
             }
-            else if(exanak == "amar" || exanak == "ashun"){
-                if(this.enrgy >= 5){
+            else if (exanak == "amar" || exanak == "ashun") {
+                if (this.enrgy >= 5) {
                     this.bazmanal();
                 }
             }
-            else if(exanak == "dzmer"){
-                if(this.energy >= 7){
+            else if (exanak == "dzmer") {
+                if (this.energy >= 7) {
                     this.bazmanal();
                 }
             }
@@ -147,7 +145,7 @@ module.exports =
         //                 this.bazmanal_timeout = false;
 
         //                 if (hivandutyun_igakan.bazmacox == false) {
-        //                     var norx = norVandak[0];
+        //                   var norx = norVandak[0];
         //                     var nory = norVandak[1];
 
         //                     var r = Math.floor(this.getrandom(5));
@@ -343,7 +341,7 @@ module.exports =
                 xotakerArr.push(xotaker);
                 matrix[norVandak[1]][norVandak[0]] = 2;
                 this.multiply = 0;
-    
+
                 for (var i in grassArr) {
                     if (norVandak[0] == grassArr[i].x && norVandak[1] == grassArr[i].y) {
                         grassArr.splice(i, 1);
