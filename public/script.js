@@ -42,10 +42,10 @@ socket.on('send matrix', function(matrix) {
                 fill("blue");
                 rect(x * side, y * side, side, side);
             }
-            else if (matrix[y][x] == 4.5) { //arakan
-                fill("#081779");
-                rect(x * side, y * side, side, side);
-            }
+            // else if (matrix[y][x] == 4.5) { //arakan
+            //     fill("#081779");
+            //     rect(x * side, y * side, side, side);
+            // }
             else if (matrix[y][x] == 5) { //igakan
                 fill("#5b62c6");
                 rect(x * side, y * side, side, side);
@@ -81,7 +81,7 @@ socket.on('send matrix', function(matrix) {
             }
         }
     }
-})
+});
 
 
 socket.on("game_over", function () {
