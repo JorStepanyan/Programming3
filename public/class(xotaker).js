@@ -89,17 +89,17 @@ module.exports =
             /////////////////xotakeri exanaki azdecutyun
 
             if (exanak == "garun") {
-                if (this.energy >= 30) {
+                if (this.energy >= 10) {
                     this.bazmanal();
                 }
             }
             else if (exanak == "amar" || exanak == "ashun") {
-                if (this.enrgy >= 90) {
+                if (this.enrgy >= 30) {
                     this.bazmanal();
                 }
             }
             else if (exanak == "dzmer") {
-                if (this.energy >= 200) {
+                if (this.energy >= 100) {
                     this.bazmanal();
                 }
             }

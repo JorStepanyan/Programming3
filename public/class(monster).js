@@ -60,7 +60,7 @@ module.exports =
         }
 
         utel() {
-            this.hivandanal();
+            //this.hivandanal();
             var monster = this.yntrelVandak(3, 3.5);
             var norVandak = this.getrandom(monster);
 
@@ -84,17 +84,17 @@ module.exports =
             }
             ///////////exanaki azdecutyuny monstri vra
             if (exanak == "garun") {
-                if (this.energy >= 2) {
+                if (this.energy >= 20) {
                     this.bazmanal();
                 }
             }
             else if (exanak == "amar" || exanak == "ashun") {
-                if (this.enrgy >= 5) {
+                if (this.enrgy >= 50) {
                     this.bazmanal();
                 }
             }
             else if (exanak == "dzmer") {
-                if (this.energy >= 7) {
+                if (this.energy >= 100) {
                     this.bazmanal();
                 }
             }

@@ -12,7 +12,7 @@ function setup() {
     background('#acacac');
 }
 
-socket.on('send matrix', function(matrix) {
+socket.on('send matrix', function (matrix) {
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) { //grassColorInSpring
@@ -87,7 +87,9 @@ socket.on("game_over", function () {
 socket.on("a", function (data) {
     matrix = data[0];
     exanak = data[1];
-    document.getElementById('exanak').innerText = exanak;
+    if (document.getElementById('exanak')) {
+        document.getElementById('exanak').innerText = exanak;
+    }
 });
 
 

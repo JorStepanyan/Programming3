@@ -109,48 +109,25 @@ for (var y = 0; y < matrix.length; y++) {
             monster1.ser = 2;
             cnvacMonster++;
         }
-        for (var i = 0; i < n; i++) {
-            matrix[i] = [];
-        
-            for (var j = 0; j < m; j++) {
-        
-                matrix[i][j] = 1;
-        
-                if (j % 3 == 0){
-                    matrix[i][j] = Math.round(Math.random() * 6);
-                } 
-            }
-        }
+        // for (var i = 0; i < n; i++) {
+        //     matrix[i] = [];
+
+        //     for (var j = 0; j < m; j++) {
+
+        //         matrix[i][j] = 1;
+
+        //         if (j % 3 == 0){
+        //             matrix[i][j] = Math.round(Math.random() * 6);
+        //         } 
+        //     }
+        // }
     }
 }
 
 
-function debugMatrix() {
-    var count = 0;
-    for (var y in matrix) {
-        for (var x in matrix[y]) {
-            if (matrix[y][x] == 4) {
-                count++;
-            }
 
 
-        }
-    }
-    return count;
-}
-
-function deleteHivandutyun() {
-    for (var y in matrix) {
-        for (var x in matrix[y]) {
-            if (matrix[y][x] == 4) {
-                matrix[y][x] = 0;
-            }
-        }
-    }
-}
-
-
-    var i = 0;
+var i = 0;
 
 function exanakiPopoxutyun() {
     exanak = exanaknerArr[i];
@@ -160,11 +137,11 @@ function exanakiPopoxutyun() {
         i = 0;
     }
 }
-setInterval(exanakiPopoxutyun,3000);
+var ex = setInterval(exanakiPopoxutyun, 3000);
 
-setInterval(function () {
+var himn = setInterval(function () {
     for (var i in grassArr) {
-        if(exanak != "dzmer"){
+        if (exanak != "dzmer") {
             grassArr[i].bazmanal();
         }
         grassArr[i].guyn();
@@ -172,34 +149,40 @@ setInterval(function () {
     for (var i in xotakerArr) {
         xotakerArr[i].bazmanal();
         xotakerArr[i].utel();
+
+
     }
 
     for (var i in gishatichArr) {
         gishatichArr[i].bazmanal();
         gishatichArr[i].utel();
+
     }
     for (var i in hivandutyunArr) {
         hivandutyunArr[i].utel();
         hivandutyunArr[i].bazmanal();
-        hivandutyunArr[i].mahanal();
+
+
     }
     for (var i in bujichArr) {
         bujichArr[i].bazmanal();
         bujichArr[i].utel();
+
     }
     for (var i in monsterArr) {
         monsterArr[i].bazmanal();
         monsterArr[i].utel();
+        monsterArr[i].mahanal();
     }
 
-    if (debugMatrix() && hivandutyunArr.length == 0) {
-        deleteHivandutyun();
-    }
     io.sockets.emit('send matrix', matrix);
     /////verjnakan ekran
-    var r = xotakerArr.length + gishatichArr.length + hivandutyunArr.length + bujichArr.length + monsterArr.length
-    if (r <= 1) {
+    var r = gishatichArr.length + xotakerArr.length + hivandutyunArr.length;
+    if (r <= 52) {
+        clearInterval(ex);
+        clearInterval(himn);
         io.sockets.emit("game_over");
+
     }
     //////statistika
     function statistics() {
